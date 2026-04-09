@@ -1,0 +1,2 @@
+# Ignore temporal Python files
+__pycache__/
