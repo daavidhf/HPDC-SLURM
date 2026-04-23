@@ -166,7 +166,8 @@ def main():
 
     # Submit the first job (Array)
     res1 = subprocess.run(['sbatch', compute_sh], # call sbatch with the compute_sh script to submit the job to SLURM
-                            capture_output=True, # Not printing the output directly, save it in res1.stdout and res1.stderr
+                            stdout=subprocess.PIPE, # Not printing the output directly, save it in res1.stdout
+                            stderr=subprocess.PIPE, # Not printing the error directly, save it in res1.stderr
                             text=True, # Interpret the output as text (string) instead of bytes
                             check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
                             )
@@ -178,7 +179,8 @@ def main():
     # Submit the second job (Dependent on the first one)
     dependency = f"--dependency=afterok:{job1_id}" # wait for the Array (first job) to finish successfully before starting
     res2 = subprocess.run(['sbatch', dependency, merge_sh],
-                            capture_output=True, # Not printing the output directly, save it in res2.stdout and res2.stderr
+                            stdout=subprocess.PIPE, # Not printing the output directly, save it in res2.stdout
+                            stderr=subprocess.PIPE, # Not printing the error directly, save it in res2.stderr
                             text=True, # Interpret the output as text (string) instead of bytes
                             check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
                             )
