@@ -168,7 +168,7 @@ def main():
     res1 = subprocess.run(['sbatch', compute_sh], # call sbatch with the compute_sh script to submit the job to SLURM
                             stdout=subprocess.PIPE, # Not printing the output directly, save it in res1.stdout
                             stderr=subprocess.PIPE, # Not printing the error directly, save it in res1.stderr
-                            text=True, # Interpret the output as text (string) instead of bytes
+                            universal_newlines=True, # Interpret the output as text (string) instead of bytes
                             check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
                             )
     
@@ -181,7 +181,7 @@ def main():
     res2 = subprocess.run(['sbatch', dependency, merge_sh],
                             stdout=subprocess.PIPE, # Not printing the output directly, save it in res2.stdout
                             stderr=subprocess.PIPE, # Not printing the error directly, save it in res2.stderr
-                            text=True, # Interpret the output as text (string) instead of bytes
+                            universal_newlines=True, # Interpret the output as text (string) instead of bytes
                             check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
                             )
     
