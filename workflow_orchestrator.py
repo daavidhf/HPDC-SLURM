@@ -35,7 +35,6 @@ def main():
     def register_log(message):
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         full_message = f"[{current_time}] {message}"
-        print(full_message)
         with open(log_file, 'a') as f: # 'a' for append mode without overwriting
             f.write(full_message + '\n')
     
@@ -91,8 +90,9 @@ def main():
     # ===========================================
     # PHASE 2: GENERATION AND SUBMISSION TO SLURM
     # ===========================================
-    title = " STARTING PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
-    register_log(title.center(100, '='))
+    with open(log_file, 'a') as f: # 'w' for write mode, which will overwrite the file if it already exists
+        title = " STARTING PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
+        f.write(f"{title.center(100, '=')}\n")
 
     num_tasks = len(intervals)
     if num_tasks == 0:
