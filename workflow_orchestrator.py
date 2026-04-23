@@ -12,7 +12,7 @@ def main():
 
     # 1. Detect the project path (pass it as an argument or use the current one)
     # If an argument is provided, we use it as the base directory
-    code_dir = os.path.dirname(os.path.abspath(__file__));
+    code_dir = os.path.dirname(os.path.abspath(__file__))
     if len(sys.argv) > 1:
         base_dir = os.path.abspath(sys.argv[1])
     # If no argument is provided, script uses the directory where it is located
@@ -45,7 +45,6 @@ def main():
     intervals = []
     
     # Search for all folders that start with "sample_" inside data/
-    print(glob.glob(os.path.join(data_dir, 'sample_*')))
     sample_folders = sorted(glob.glob(os.path.join(data_dir, 'sample_*')))
     
     if not sample_folders:
