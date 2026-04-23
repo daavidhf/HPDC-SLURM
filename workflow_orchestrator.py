@@ -34,7 +34,7 @@ def main():
 
     def register_log(message):
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        full_message = f"[{current_time}] {message}"
+        full_message = f"[{current_time}] {message}";
         with open(log_file, 'a') as f: # 'a' for append mode without overwriting
             f.write(full_message + '\n')
     
