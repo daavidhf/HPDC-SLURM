@@ -66,8 +66,7 @@ def main():
 
     with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
         title = " STARTING PHASE 3: CONSOLIDATION OF RESULTS "
-        f.write(f"{title.center(100, '=')}\n")
+        f.write(f"{title.center(100, '=')}\n\n")
 
 if __name__ == '__main__':
     main()
-    

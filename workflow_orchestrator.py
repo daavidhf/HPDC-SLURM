@@ -82,7 +82,7 @@ def main():
 
     with open(log_file, 'a') as f: # 'a' for append mode without overwriting
         title = " END OF PHASE 1: EXPLORATION AND TASKS PREPARATION "
-        f.write(f"{title.center(100, '=')}\n")
+        f.write(f"{title.center(100, '=')}\n\n")
 
 
 
@@ -191,7 +191,7 @@ python {code_dir}/scripts/consolidate_results.py {results_dir}
 
     with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
         title = " END OF PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
-        f.write(f"{title.center(100, '=')}\n")
+        f.write(f"{title.center(100, '=')}\n\n")
 
 
 if __name__ == '__main__':
