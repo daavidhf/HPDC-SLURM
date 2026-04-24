@@ -1,4 +1,4 @@
-# SLURM Workflow Orchestrator
+# Count Primes SLURM Workflow Orchestrator
 **Course:** High-Performance and Distributed Computing  
 **Student:** David Hidalgo Fàbregas  
 **Date:** 24 of April 2026
