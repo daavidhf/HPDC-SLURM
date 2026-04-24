@@ -5,10 +5,8 @@ from datetime import datetime
 
 import subprocess
 
+
 def main():
-    # ==========================================================
-    # PHASE 1: ANALYSIS OF DATA FOLDERS AND PREPARATION OF TASKS
-    # ==========================================================
 
     # 1. Detect the project path (pass it as an argument or use the current one)
     # If an argument is provided, we use it as the base directory
@@ -25,21 +23,44 @@ def main():
     results_dir = os.path.join(base_dir, 'results')
     scripts_dir = os.path.join(base_dir, 'scripts')
 
-
-    # 2. Configure the logging system (ORCHEST_LOG.txt)
-    log_file = os.path.join(logs_dir, 'ORCHEST_LOG.txt')
-    with open(log_file, 'w') as f: # 'w' for write mode, which will overwrite the file if it already exists
-        title = " STARTING PHASE 1: EXPLORATION AND TASKS PREPARATION "
-        f.write(f"{title.center(100, '=')}\n")
-
+    # Auxiliary function to register logs with timestamps
     def register_log(message):
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         full_message = f"[{current_time}] {message}";
         with open(log_file, 'a') as f: # 'a' for append mode without overwriting
             f.write(full_message + '\n')
+
+    # =========================================================================
+    # PHASE 1: CONFIGURE LOGGING SYSTEM AND CLENANING PREVIOUS RESULTS AND LOGS
+    # =========================================================================
+
+    # 1. Configure the logging system (ORCHEST_LOG.txt)
+    log_file = os.path.join(logs_dir, 'ORCHEST_LOG.txt')
+    with open(log_file, 'w') as f: # 'w' for write mode, which will overwrite the file if it already exists
+        title = " STARTING PHASE 1: CLEANING PREVIOUS RESULTS AND LOGS "
+        f.write(f"{title.center(100, '=')}\n")
+
+    # 2. Clean up previous results and logs (except ORCHEST_LOG.txt)
+
+    for file in glob.glob(os.path.join(logs_dir, '*')):
+        if os.path.isfile(file) and not file.endswith('ORCHEST_LOG.txt'):
+            os.remove(file)
+            register_log(f"Removed old file: {file}")
+    register_log("Previous logs and results cleaned.")
+
+    with open(log_file, 'a') as f: # 'A' for append mode, which will add to the file
+        title = " END OF PHASE 1: CLEANING PREVIOUS RESULTS AND LOGS "
+        f.write(f"{title.center(100, '=')}\n\n")
+
+    # ==========================================================
+    # PHASE 2: ANALYSIS OF DATA FOLDERS AND PREPARATION OF TASKS
+    # ==========================================================
+
+    with open(log_file, 'a') as f: # 'A' for append mode, which will add to the file
+        title = " STARTING PHASE 2: EXPLORATION AND TASKS PREPARATION "
+        f.write(f"{title.center(100, '=')}\n")
     
     register_log(f"Project directory: {base_dir}")
-
 
     # 3. Explore the "sample" folders and extract intervals
     intervals = []
@@ -81,16 +102,16 @@ def main():
     register_log(f"Tasks file generated at: {tasks_file}")
 
     with open(log_file, 'a') as f: # 'a' for append mode without overwriting
-        title = " END OF PHASE 1: EXPLORATION AND TASKS PREPARATION "
+        title = " END OF PHASE 2: EXPLORATION AND TASKS PREPARATION "
         f.write(f"{title.center(100, '=')}\n\n")
 
 
 
     # ===========================================
-    # PHASE 2: GENERATION AND SUBMISSION TO SLURM
+    # PHASE 3: GENERATION AND SUBMISSION TO SLURM
     # ===========================================
     with open(log_file, 'a') as f: # 'w' for write mode, which will overwrite the file if it already exists
-        title = " STARTING PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
+        title = " STARTING PHASE 3: SLURM FILES GENERATION AND JOBS SUBMISSION "
         f.write(f"{title.center(100, '=')}\n")
 
     num_tasks = len(intervals)
@@ -130,8 +151,8 @@ END=$(echo $LINE | awk '{{print $2}}')
 # Run the count_tot_primes script, filter the total, and save the partial results
 # grep: selects the line that contains the total count, so we only save the primes found in the interval.
 # -v option: inverts the match, so it prints all lines that do NOT contain "TOTAL:".
-python {scripts_dir}/count_tot_primes.py $START $END | grep -v "TOTAL:" > {results_dir}/primes_${{SLURM_ARRAY_TASK_ID}}.txt
-            """
+python {scripts_dir}/count_tot_primes.py $START $END | grep -v "TOTAL:"
+"""
         )
 
     register_log(f"Generated computing script: {compute_sh}")
@@ -152,8 +173,8 @@ python {scripts_dir}/count_tot_primes.py $START $END | grep -v "TOTAL:" > {resul
 #SBATCH --error={logs_dir}/merge_%j.err
 
 # Run our auxiliary Python script to merge the results
-python {code_dir}/scripts/consolidate_results.py {results_dir}
-            """
+python {scripts_dir}/consolidate_results.py {results_dir}
+"""
         )
 
     register_log(f"Generated consolidation script: {merge_sh}")
@@ -163,7 +184,7 @@ python {code_dir}/scripts/consolidate_results.py {results_dir}
     try:
         # Submit the first job (Array)
         res1 = subprocess.run(['sbatch', compute_sh], # call sbatch with the compute_sh script to submit the job to SLURM
-                                stdout=subprocess.PIPE, # Not printing the output directly, save it in res1.stdout
+                                stdout=subprocess.PIPE, # Save the "acknowledgment of recepit"  in res1.stdout ("Submitted batch job ID")
                                 stderr=subprocess.PIPE, # Not printing the error directly, save it in res1.stderr
                                 universal_newlines=True, # Interpret the output as text (string) instead of bytes
                                 check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
@@ -176,7 +197,7 @@ python {code_dir}/scripts/consolidate_results.py {results_dir}
         # Submit the second job (Dependent on the first one)
         dependency = f"--dependency=afterok:{job1_id}" # wait for the Array (first job) to finish successfully before starting
         res2 = subprocess.run(['sbatch', dependency, merge_sh],
-                                stdout=subprocess.PIPE, # Not printing the output directly, save it in res2.stdout
+                                stdout=subprocess.PIPE, # Save the "acknowledgment of recepit"  in res1.stdout ("Submitted batch job ID")
                                 stderr=subprocess.PIPE, # Not printing the error directly, save it in res2.stderr
                                 universal_newlines=True, # Interpret the output as text (string) instead of bytes
                                 check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
@@ -190,7 +211,7 @@ python {code_dir}/scripts/consolidate_results.py {results_dir}
         return
 
     with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
-        title = " END OF PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
+        title = " END OF PHASE 3: SLURM FILES GENERATION AND JOBS SUBMISSION "
         f.write(f"{title.center(100, '=')}\n\n")
 
 
