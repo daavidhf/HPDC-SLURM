@@ -61,6 +61,25 @@ The third phase ends submitting the Jobs to SLURM, but this does not mean that t
 This final phase, which is implemented in the `consolidate_results.py` source code, prints in the `ORCHEST_LOG.txt` of the `/logs` directory that the jobs have ended, and the results have been written in `ALL_PRIMES.txt` inside the `/results` directory.
 
 ## 4. Validation
+After submission, the SLURM queue was checked using the `squeue -u $USER` command. The output confirmed that the Job Array (computing phase) transitioned to the Running (R) state, while the consolidation job remained in the Pending (PD) state with the exact reason `Dependency`:
+![alt text](image.png)
+This validated that SLURM successfully recognized and managed the `--dependency=afterok:<job_id>` flag.
 
+Upon completion of the consolidation job, the `/results/ALL_PRIMES.txt` file was examined. The file contained a stricly ascending list of prime numbers with no duplicates, and the final line correctly displayed the total count.
+
+Finally, the `ORCHEST_LOG.txt` provided a perfect chronological trace of the entire execution, from the initial directory cleanup to the sel-reported success message triggered by the `consolidate_results.py` script.
 
 ## 5. Conclusions
+The development of this workflow orchestrator has successfully demonstrated how to automate and manage complex, dependent computational tasks in a High-Performance Computing environment using SLURM.
+
+Some key architectural decisions contributed to the robustness of the system:
+- By leveraging SLURM's native standard output streams (`.out`) to carry intermediate data, the system significantly reduced input and output operations, avoiding the generation of unnecessary temporary files.
+- Delegating the job sequence control to SLURM rather than enforcing Python to wait, optimized the use of the access node's resources and reinforced the asynchronous nature of cluster computing.
+- The use of Python's `subprocess`module with standard error capturing and exit code checking ensures that any configuration or submission failure is caught and logged, preventing silent errors.
+
+This project solidifies the core concepts of distributed computing, automated job scheduling, and the importanc of designing location-agnostic, scalable pipelines in modern HPC ecosystems.
+
+**Limitations and Future Work**
+Despite its robustness, the current architecture presents a tight coupling with the project's internal directory tree. Even when the orchestrator is executed from an external location, it strictly mandates that the target data directory contains the auxiliary scripts within a specific `/scripts` folder. A potential improvement for future iterations would be to bundle the auxiliary scripts directly within the orchestrator's logic or implement an auto-deployment mechanism that temporarily provisions the worker nodes with the required scripts, thereby achieving complete structural decoupling.
+
+***

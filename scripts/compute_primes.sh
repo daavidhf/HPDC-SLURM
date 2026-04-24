@@ -5,7 +5,7 @@
 
 # Set the array to run from 1 to the number of tasks (intervals) we have at the same time.
 # SLURM will automatically set the environment variable SLURM_ARRAY_TASK_ID to the current index (1-based).
-#SBATCH --array=1-5
+#SBATCH --array=1-6
 
 # Output and error files for each task in the array, using the task ID to differentiate them.
 # %A is the job ID and %a is the array index. Each task will have its own log files.
