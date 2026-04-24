@@ -4,9 +4,9 @@ import glob
 from datetime import datetime
 
 def main():
-    # =================================
-    # PHASE 4: CONSOLIDATION OF RESULTS
-    # =================================
+    # ================
+    # PHASE 4: RESULTS
+    # ================
 
     # Make sure we receive the path to the results folder
     if len(sys.argv) < 2:
@@ -25,7 +25,7 @@ def main():
             f.write(full_message + '\n')
     
     with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
-        title = " STARTING PHASE 4: CONSOLIDATION OF RESULTS "
+        title = " STARTING PHASE 4: RESULTS "
         f.write(f"{title.center(100, '=')}\n")
 
     # A 'set' in Python does not allow duplicate elements
@@ -57,14 +57,12 @@ def main():
     with open(final_file, 'w') as f:
         for prime in sorted_primes:
             f.write(f"{prime}\n")
-        
-        # The last line should contain the total number of primes
-        f.write(f"TOTAL: {len(sorted_primes)}\n")
+        f.write(f"TOTAL: {len(sorted_primes)}\n") # The last line should contain the total number of primes
 
     register_log(f"Success: {len(sorted_primes)} unique primes saved in {final_file}")
 
     with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
-        title = " END OF PHASE 4: CONSOLIDATION OF RESULTS "
+        title = " END OF PHASE 3: RESULTS "
         f.write(f"{title.center(100, '=')}\n")
 
 if __name__ == '__main__':
