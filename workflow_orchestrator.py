@@ -162,30 +162,34 @@ def main():
 
 
     # 3. Submit the jobs to SLURM
+    try:
+        # Submit the first job (Array)
+        res1 = subprocess.run(['sbatch', compute_sh], # call sbatch with the compute_sh script to submit the job to SLURM
+                                stdout=subprocess.PIPE, # Not printing the output directly, save it in res1.stdout
+                                stderr=subprocess.PIPE, # Not printing the error directly, save it in res1.stderr
+                                universal_newlines=True, # Interpret the output as text (string) instead of bytes
+                                check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
+                                )
+        
+        # sbatch returns something like "Submitted batch job 12345", we extract the ID:
+        job1_id = res1.stdout.strip().split()[-1]
+        register_log(f"Job Array submitted to SLURM successfully. Job ID: {job1_id}")
 
-    # Submit the first job (Array)
-    res1 = subprocess.run(['sbatch', compute_sh], # call sbatch with the compute_sh script to submit the job to SLURM
-                            stdout=subprocess.PIPE, # Not printing the output directly, save it in res1.stdout
-                            stderr=subprocess.PIPE, # Not printing the error directly, save it in res1.stderr
-                            universal_newlines=True, # Interpret the output as text (string) instead of bytes
-                            check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
-                            )
-    
-    # sbatch returns something like "Submitted batch job 12345", we extract the ID:
-    job1_id = res1.stdout.strip().split()[-1]
-    register_log(f"Job Array submitted to SLURM successfully. Job ID: {job1_id}")
+        # Submit the second job (Dependent on the first one)
+        dependency = f"--dependency=afterok:{job1_id}" # wait for the Array (first job) to finish successfully before starting
+        res2 = subprocess.run(['sbatch', dependency, merge_sh],
+                                stdout=subprocess.PIPE, # Not printing the output directly, save it in res2.stdout
+                                stderr=subprocess.PIPE, # Not printing the error directly, save it in res2.stderr
+                                universal_newlines=True, # Interpret the output as text (string) instead of bytes
+                                check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
+                                )
+        
+        job2_id = res2.stdout.strip().split()[-1]
+        register_log(f"Consolidation job submitted to SLURM. Job ID: {job2_id} (Depends on {job1_id})")
 
-    # Submit the second job (Dependent on the first one)
-    dependency = f"--dependency=afterok:{job1_id}" # wait for the Array (first job) to finish successfully before starting
-    res2 = subprocess.run(['sbatch', dependency, merge_sh],
-                            stdout=subprocess.PIPE, # Not printing the output directly, save it in res2.stdout
-                            stderr=subprocess.PIPE, # Not printing the error directly, save it in res2.stderr
-                            universal_newlines=True, # Interpret the output as text (string) instead of bytes
-                            check=True # If command fails (non-zero exit code), raise a CalledProcessError exception
-                            )
-    
-    job2_id = res2.stdout.strip().split()[-1]
-    register_log(f"Consolidation job submitted to SLURM. Job ID: {job2_id} (Depends on {job1_id})")
+    except subprocess.CalledProcessError as e:
+        register_log(f"Error submitting jobs to SLURM: {e.stderr}")
+        return
 
     title = " END OF PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
     register_log(title.center(100, '='))
