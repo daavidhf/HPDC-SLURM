@@ -189,8 +189,9 @@ python {code_dir}/scripts/consolidate_results.py {results_dir}
         register_log(f"Error submitting jobs to SLURM: {e.stderr}")
         return
 
-    title = " END OF PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
-    register_log(title.center(100, '='))
+    with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
+        title = " END OF PHASE 2: SLURM FILES GENERATION AND JOBS SUBMISSION "
+        f.write(f"{title.center(100, '=')}\n")
 
 
 if __name__ == '__main__':

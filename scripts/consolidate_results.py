@@ -25,8 +25,9 @@ def main():
         with open(log_file, 'a') as f: # 'a' for append mode without overwriting
             f.write(full_message + '\n')
     
-    title = "STARTING PHASE 3: CONSOLIDATION OF RESULTS"
-    register_log(f"{title.center(100, '=')}")
+    with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
+        title = " STARTING PHASE 3: CONSOLIDATION OF RESULTS "
+        f.write(f"{title.center(100, '=')}\n")
 
     # A 'set' in Python does not allow duplicate elements
     all_primes = set()
@@ -63,5 +64,10 @@ def main():
 
     register_log(f"Success: {len(sorted_primes)} unique primes saved in {final_file}")
 
+    with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
+        title = " STARTING PHASE 3: CONSOLIDATION OF RESULTS "
+        f.write(f"{title.center(100, '=')}\n")
+
 if __name__ == '__main__':
     main()
+    
