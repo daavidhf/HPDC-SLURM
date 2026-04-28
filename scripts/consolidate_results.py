@@ -62,7 +62,7 @@ def main():
     register_log(f"Success: {len(sorted_primes)} unique primes saved in {final_file}")
 
     with open(log_file, 'a') as f: # 'a' for append mode, which will add to the file that already exists
-        title = " END OF PHASE 3: RESULTS "
+        title = " END OF PHASE 4: RESULTS "
         f.write(f"{title.center(100, '=')}\n")
 
 if __name__ == '__main__':
