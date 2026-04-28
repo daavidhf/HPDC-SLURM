@@ -61,9 +61,7 @@ The third phase ends submitting the Jobs to SLURM, but this does not mean that t
 This final phase, which is implemented in the `consolidate_results.py` source code, prints in the `ORCHEST_LOG.txt` of the `/logs` directory that the jobs have ended, and the results have been written in `ALL_PRIMES.txt` inside the `/results` directory.
 
 ## 4. Validation
-After submission, the SLURM queue was checked using the `squeue -u $USER` command. The output confirmed that the Job Array (computing phase) transitioned to the Running (R) state, while the consolidation job remained in the Pending (PD) state with the exact reason `Dependency`:
-![alt text](image.png)
-This validated that SLURM successfully recognized and managed the `--dependency=afterok:<job_id>` flag.
+After submission, the SLURM queue was checked using the `squeue -u $USER` command. The output confirmed that the Job Array (computing phase) transitioned to the Running (R) state, while the consolidation job remained in the Pending (PD) state with the exact reason `Dependency`. This validated that SLURM successfully recognized and managed the `--dependency=afterok:<job_id>` flag.
 
 Upon completion of the consolidation job, the `/results/ALL_PRIMES.txt` file was examined. The file contained a stricly ascending list of prime numbers with no duplicates, and the final line correctly displayed the total count.
 

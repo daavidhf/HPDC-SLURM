@@ -1,40 +1,114 @@
 ======================= STARTING PHASE 1: CLEANING PREVIOUS RESULTS AND LOGS =======================
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_2.out
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_1.out
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_3.out
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_5.out
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_4.out
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_6.out
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_1.err
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_2.err
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_3.err
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_5.err
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_4.err
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_98665_6.err
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/merge_98666.out
-[2026-04-24 20:02:39] Removed old file: /home/master/mhedas/mhedas-39/project/logs/merge_98666.err
-[2026-04-24 20:02:39] Previous logs and results cleaned.
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_38.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_37.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_37.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_38.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_5.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_14.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_4.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_18.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_2.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_13.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_11.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_15.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_22.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_11.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_18.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_24.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_7.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_13.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_5.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_4.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_19.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_12.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_16.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_26.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_6.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_15.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_29.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_2.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_14.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_33.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_22.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_25.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_9.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_21.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_25.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_1.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_24.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_27.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_23.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_3.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_19.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_28.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_16.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_30.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_17.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_32.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_20.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_26.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_21.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_7.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_29.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_23.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_10.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_36.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_17.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_12.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_31.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_6.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_20.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_33.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_9.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_27.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_1.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_3.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_28.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_35.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_10.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_34.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_30.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_8.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_32.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_36.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_31.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_8.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_35.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/compute_105581_34.err
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/merge_105582.out
+[2026-04-28 17:12:54] Removed old file: /home/master/mhedas/mhedas-39/project/logs/merge_105582.err
+[2026-04-28 17:12:54] Previous logs and results cleaned.
 ======================== END OF PHASE 1: CLEANING PREVIOUS RESULTS AND LOGS ========================
 
 ======================= STARTING PHASE 2: EXPLORATION AND TASKS PREPARATION ========================
-[2026-04-24 20:02:39] Project directory: /home/master/mhedas/mhedas-39/project
-[2026-04-24 20:02:39] Visiting sample folder: sample_01
-[2026-04-24 20:02:39]   -> Reading range file: ranges_1.txt
-[2026-04-24 20:02:39]   -> Reading range file: ranges_2.txt
-[2026-04-24 20:02:39] Visiting sample folder: sample_02
-[2026-04-24 20:02:39]   -> Reading range file: ranges_1.txt
-[2026-04-24 20:02:39] Exploration completed. 9 intervals found in total.
-[2026-04-24 20:02:39] Tasks file generated at: /home/master/mhedas/mhedas-39/project/results/all_intervals.txt
+[2026-04-28 17:12:54] Project directory: /home/master/mhedas/mhedas-39/project
+[2026-04-28 17:12:54] Visiting sample folder: sample_01
+[2026-04-28 17:12:54]   -> Reading range file: ranges_1.txt
+[2026-04-28 17:12:54]   -> Reading range file: ranges_2.txt
+[2026-04-28 17:12:54] Visiting sample folder: sample_02
+[2026-04-28 17:12:54]   -> Reading range file: ranges_1.txt
+[2026-04-28 17:12:54] Visiting sample folder: sample_03
+[2026-04-28 17:12:54]   -> Reading range file: ranges_1.txt
+[2026-04-28 17:12:54]   -> Reading range file: ranges_2.txt
+[2026-04-28 17:12:54]   -> Reading range file: ranges_3.txt
+[2026-04-28 17:12:54]   -> Reading range file: ranges_4.txt
+[2026-04-28 17:12:54]   -> Reading range file: ranges_5.txt
+[2026-04-28 17:12:54] Visiting sample folder: sample_04
+[2026-04-28 17:12:54]   -> Reading range file: ranges_1.txt
+[2026-04-28 17:12:54]   -> Reading range file: ranges_2.txt
+[2026-04-28 17:12:54]   -> Reading range file: ranges_3.txt
+[2026-04-28 17:12:54] Exploration completed. 38 intervals found in total.
+[2026-04-28 17:12:54] Tasks file generated at: /home/master/mhedas/mhedas-39/project/results/all_intervals.txt
 ======================== END OF PHASE 2: EXPLORATION AND TASKS PREPARATION =========================
 
 =================== STARTING PHASE 3: SLURM FILES GENERATION AND JOBS SUBMISSION ===================
-[2026-04-24 20:02:39] Generated computing script: /home/master/mhedas/mhedas-39/project/scripts/compute_primes.sh
-[2026-04-24 20:02:39] Generated consolidation script: /home/master/mhedas/mhedas-39/project/scripts/merge_primes.sh
-[2026-04-24 20:02:39] Job Array submitted to SLURM successfully. Job ID: 98702
-[2026-04-24 20:02:39] Consolidation job submitted to SLURM. Job ID: 98703 (Depends on 98702)
+[2026-04-28 17:12:54] Generated computing script: /home/master/mhedas/mhedas-39/project/scripts/compute_primes.sh
+[2026-04-28 17:12:54] Generated consolidation script: /home/master/mhedas/mhedas-39/project/scripts/merge_primes.sh
+[2026-04-28 17:12:54] Job Array submitted to SLURM successfully. Job ID: 105620
+[2026-04-28 17:12:54] Consolidation job submitted to SLURM. Job ID: 105621 (Depends on 105620)
 ==================== END OF PHASE 3: SLURM FILES GENERATION AND JOBS SUBMISSION ====================
 
 ==================================== STARTING PHASE 4: RESULTS =====================================
-[2026-04-24 20:02:46] Consolidating 9 temporary files...
-[2026-04-24 20:02:46] Success: 3243 unique primes saved in /home/master/mhedas/mhedas-39/project/results/ALL_PRIMES.txt
+[2026-04-28 17:13:01] Consolidating 38 temporary files...
+[2026-04-28 17:13:01] Success: 4675 unique primes saved in /home/master/mhedas/mhedas-39/project/results/ALL_PRIMES.txt
 ===================================== END OF PHASE 3: RESULTS ======================================
