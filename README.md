@@ -73,7 +73,7 @@ The development of this workflow orchestrator has successfully demonstrated how 
 Some key architectural decisions contributed to the robustness of the system:
 - By leveraging SLURM's native standard output streams (`.out`) to carry intermediate data, the system significantly reduced input and output operations, avoiding the generation of unnecessary temporary files.
 - Delegating the job sequence control to SLURM rather than enforcing Python to wait, optimized the use of the access node's resources and reinforced the asynchronous nature of cluster computing.
-- The use of Python's `subprocess`module with standard error capturing and exit code checking ensures that any configuration or submission failure is caught and logged, preventing silent errors.
+- The use of Python's `subprocess` module with standard error capturing and exit code checking ensures that any configuration or submission failure is caught and logged, preventing silent errors.
 
 This project solidifies the core concepts of distributed computing, automated job scheduling, and the importanc of designing location-agnostic, scalable pipelines in modern HPC ecosystems.
 
