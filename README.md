@@ -78,6 +78,7 @@ Some key architectural decisions contributed to the robustness of the system:
 This project solidifies the core concepts of distributed computing, automated job scheduling, and the importanc of designing location-agnostic, scalable pipelines in modern HPC ecosystems.
 
 **Limitations and Future Work**
+
 Despite its robustness, the current architecture presents a tight coupling with the project's internal directory tree. Even when the orchestrator is executed from an external location, it strictly mandates that the target data directory contains the auxiliary scripts within a specific `/scripts` folder. A potential improvement for future iterations would be to bundle the auxiliary scripts directly within the orchestrator's logic or implement an auto-deployment mechanism that temporarily provisions the worker nodes with the required scripts, thereby achieving complete structural decoupling.
 
 ***
